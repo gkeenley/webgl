@@ -1,0 +1,60 @@
+
+<!-- Gabe Keenleyside -->
+<!-- 250 470 571 -->
+<!-- CS 3388 -->
+<!-- Assignment #1 -->
+
+
+<!-- Module: Javascript Prep -->
+<!-- Author: Gabe Keenleyside -->
+<!-- Date: 02/10/13 -->
+<!-- Purpose: Initialize HTML page to recognize and interpret Javascript code. -->
+<html>
+    <head>
+        <title> Gabe Keenleyside &mdash; 250 470 571 &mdash; Floating rectangles</title> <!-- Title in HTML page. -->
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"> <!-- Character encoding declaration. -->
+        <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script> <!-- First minified .js file needed for program to run. -->
+        <script type="text/javascript" src="webgl-utils.js"></script> <!-- Second minified .js file needed for program to run. -->
+        <!-- Encode fragment shader. -->
+        <script id="shader-fs" type="x-shader/x-fragment">
+            precision mediump float; // Indicates medium precision when interpreting floating point numbers. 
+            varying vec4 vColor; // Indicates that we will draw in color. Declares variable vColor which will vary from rectangle to rectangle.
+            void main(void) { // Calculate the value of the fragment shader for each pixel in a given rectangle.
+                gl_FragColor = vColor;
+            }
+        </script>
+        <!-- Encode vertex shader. -->
+        <script id="shader-vs" type="x-shader/x-vertex">
+            attribute vec3 aVertexPosition; // Position attribute for a given vertex.
+            attribute vec4 aVertexColor; // color attribute for a given vertex.
+            // Need to define matrix uniforms. The model-view (current position) and projection matrices operate within the Javascript code, and matrix uniforms translate the values obtained from these matrices to the graphics card.
+            uniform mat4 uMVMatrix; // Model-view matrix uniform.
+            uniform mat4 uPMatrix; // Projection matrix uniform.
+            varying vec4 vColor; // Same as fragment shader, declare varying color variable vColor.
+            void main(void) { // Calculate value of vertex shader for each pixel in a given rectangle. Pass input attribute to varying output variable to define color.
+                gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+                vColor = aVertexColor;
+            }
+        </script> <!-- Finished encoding vertex shader. -->
+        <script id="main" type="text/javascript" src="main.js"></script>
+    </head>
+
+<!-- Module: HTML Body
+// Author: Gabe Keenleyside
+// Date: 02/10/13
+// Purpose: Body of HTML page. Tell HTML page what to do, given that it has been initialized (By 'Javascript Prep') to recognize Javascript code. All are output parameters.
+-->
+
+<!-- When script runs and HTML page loads, initiate drawing of initial state of rectangles, via function 'webGLStart'. -->
+<body onload="webGLStart();">
+<!-- Display WebGL image.
+    Declare parameters for window, according to 'canvas'. -->
+    <canvas id="myCanvas" style="border: none;" width="1279" height="595"></canvas>
+    <br/>
+</body>
+
+<!-- END 'HTML Body'
+</html>
+
+
+

@@ -1,0 +1,6 @@
+- Open main.html in web browser.
+- Assortment of rectangles of random colours, dimensions, and degrees of compression are shown on screen.
+- Press 's' to begin animation. Rectangles will move with random selections for the following properties: direction, speed and direction of rotation, nd speed and degree of compression.
+- When a rectangle disappears on one side of the screen, it will re-appear on the other side of the screen and continue its cycle.
+- Press 'q' to quit window.
+- Since this was a course assignment, I have included files ‘Assignment Requirements.pdf’ and ‘WriteUp.pdf’ for further reference about the code.

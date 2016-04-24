@@ -1,0 +1,3 @@
+- Animation of spheres with reflective surface encoded using ray tracing method.
+- Open ‘main.html' in web browser.
+- User can adjust parameters of animation in boxes shown in window such as speed of rotation, and amplitude of each sphere.
