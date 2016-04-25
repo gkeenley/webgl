@@ -1,3 +1,4 @@
+- Open main.html in web browser.
 - Object Rotating about three axes.
 - Specular and ambient light course visible, and properties can be adjusted using boxes below window.
 - 'Use color map' and 'use specular map' are initially unchecked. Checking them will add pebble texture to object, but may not be renderable in all browsers.
